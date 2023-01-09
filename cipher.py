@@ -6,13 +6,12 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 
 def caesar_cipher(text, shift_amount, operation):
     output_text = ''
+    # Multiply by -1 so new_index is calculated negatively if operation is 'decode'
+    if operation == 'decode':
+        shift_amount *= -1
     for letter in text:
         current_index = alphabet.index(letter)
-        new_index = 0
-        if operation == 'encode':
-            new_index = current_index + shift_amount
-        elif operation == 'decode':
-            new_index = current_index - shift_amount
+        new_index = current_index + shift_amount
         new_letter = alphabet[new_index]
         output_text += new_letter
     print(
