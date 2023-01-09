@@ -31,7 +31,7 @@ while True:
         print('Input not recognized')
     else:
         caesar_cipher(text, shift, operation)
-        if input('Do you want to go again?\n').lower() == 'yes':
+        if input('Type "yes" if you want to go again, or type anything else to quit.\n').lower() == 'yes':
             continue
         else:
             print('Goodbye')
