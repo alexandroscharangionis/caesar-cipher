@@ -9,11 +9,13 @@ def caesar_cipher(text, shift_amount, operation):
     # Multiply by -1 so new_index is calculated negatively if operation is 'decode'
     if operation == 'decode':
         shift_amount *= -1
-    for letter in text:
-        current_index = alphabet.index(letter)
-        new_index = current_index + shift_amount
-        new_letter = alphabet[new_index]
-        output_text += new_letter
+    for char in text:
+        if char in alphabet:
+            current_index = alphabet.index(char)
+            new_index = current_index + shift_amount
+            output_text += alphabet[new_index]
+        else:
+            output_text += char
     print(
         f"The {'encrypted' if operation == 'encode' else 'decrypted'} text is '{output_text}'")
 
@@ -22,6 +24,8 @@ while True:
     operation = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
+    # Using modulo operand on shift ensured that program doesn't break if user inputs a number that's too big:
+    shift = shift % 26
 
     if operation != 'decode' and operation != 'encode':
         print('Input not recognized')
