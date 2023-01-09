@@ -1,3 +1,5 @@
+from art import logo
+
 # Alphabet is doubled so if we try to shift letters towards the end of the alphabet, new_index variable works and doesn't trigger "list out of range" error
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
             'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -19,6 +21,8 @@ def caesar_cipher(text, shift_amount, operation):
     print(
         f"The {'encrypted' if operation == 'encode' else 'decrypted'} text is '{output_text}'")
 
+
+print(logo)
 
 while True:
     operation = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
