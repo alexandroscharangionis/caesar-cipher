@@ -11,11 +11,28 @@ def encrypt(text, shift_amount):
         new_index = original_index + shift_amount
         new_letter = alphabet[new_index]
         encrypted_text += new_letter
-    print(f"The encrypted text is {encrypted_text}")
+    print(f"The encrypted text is '{encrypted_text}'")
 
 
-operation = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+def decrypt(encrypted_text, shift_amount):
+    decrypted_text = ''
+    for letter in encrypted_text:
+        current_index = alphabet.index(letter)
+        original_index = current_index - shift_amount
+        new_letter = alphabet[original_index]
+        decrypted_text += new_letter
+    print(f"The decrypted text is '{decrypted_text}'")
 
-encrypt(text=text, shift_amount=shift)
+
+while True:
+    operation = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    if operation == 'encode':
+        encrypt(text, shift)
+        break
+    elif operation == 'decode':
+        decrypt(text, shift)
+        break
+    else:
+        print('Input not recognized')
